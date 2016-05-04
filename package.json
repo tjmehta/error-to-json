@@ -1,0 +1,43 @@
+{
+  "name": "err-to-json",
+  "version": "0.0.0",
+  "description": "Returns a JSON representation of an error (handles nested errors and calls nested toJSONs)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+    "test-watch": "nodemon -x mocha ./test",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjmehta/err-to-json.git"
+  },
+  "keywords": [
+    "error",
+    "tojson",
+    "to",
+    "json",
+    "return",
+    "nested",
+    "errortojson",
+    "err",
+    "errtojson"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/err-to-json/issues"
+  },
+  "homepage": "https://github.com/tjmehta/err-to-json",
+  "dependencies": {
+    "101": "^1.5.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
+  }
+}
