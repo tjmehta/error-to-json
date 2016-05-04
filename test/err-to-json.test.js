@@ -38,7 +38,7 @@ describe('error to json', function () {
           foo: 10,
           bar: 20,
           qux: function () {},
-          toJSON: () => {
+          toJSON: function () {
             return { foo: 10, bar: 20 }
           }
         },
