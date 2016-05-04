@@ -1,6 +1,6 @@
 {
   "name": "error-to-json",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Returns a JSON representation of an error (handles nested errors and calls nested toJSONs)",
   "main": "index.js",
   "directories": {
