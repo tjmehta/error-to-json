@@ -7,6 +7,8 @@ npm i --save error-to-json
 ```
 
 # Usage
+
+Example: toJSON
 ```js
 var errToJSON = require('error-to-json')
 
@@ -46,6 +48,36 @@ var json = errorToJSON(err)
  */
 
 ```
+
+Example: Parse
+```js
+var parseErr = require('error-to-json').parse
+
+var err = parse({
+  message: 'boom2',
+  stack: 'Error: boom2\n  at ...\n  at...'
+})
+/*
+  > err
+  [ Error: boom2 ]
+  > err.stack
+  `Error: boom2
+    at ...
+    at ...`
+*/
+
+var err2 = parse({
+  message: 'boom'
+  // no stack
+})
+/*
+  > err2
+  [ Error: boom ]
+  > err2.stack
+  'Error: boom'
+*/
+```
+
 
 #License
 MIT
