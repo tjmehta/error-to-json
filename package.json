@@ -2,14 +2,12 @@
   "name": "error-to-json",
   "version": "1.1.0",
   "description": "Returns a JSON representation of an error (handles nested errors and calls nested toJSONs)",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
-    "test-watch": "nodemon -x mocha ./test",
-    "lint": "standard"
+    "prepublish": "npm run build",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -33,11 +31,17 @@
   },
   "homepage": "https://github.com/tjmehta/error-to-json",
   "dependencies": {
-    "101": "^1.5.0"
+    "fast-safe-stringify": "^2.0.7"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.4.5"
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^25.2.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.0.1",
+    "escape-string-regexp": "^4.0.0",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
   }
 }
