@@ -1,16 +1,28 @@
 # error-to-json [![Build Status](https://travis-ci.org/tjmehta/error-to-json.svg?branch=master)](https://travis-ci.org/tjmehta/error-to-json)
+
 Returns a JSON representation of an error (handles nested errors and calls nested toJSONs)
 
 # Installation
+
 ```bash
 npm i --save error-to-json
 ```
 
 # Usage
 
-Example: toJSON
+#### Supports both ESM and CommonJS
+
 ```js
-var errToJSON = require('error-to-json')
+// esm
+import errorToJSON from 'error-to-json'
+// commonjs
+const errorToJSON = require('error-to-json')
+```
+
+#### Example: toJSON
+
+```js
+import errorToJSON from 'error-to-json'
 
 var model = {
   _json: {
@@ -49,13 +61,14 @@ var json = errorToJSON(err)
 
 ```
 
-Example: Parse
+#### Example: Parse
+
 ```js
-var parseErr = require('error-to-json').parse
+import { parse } from 'error-to-json'
 
 var err = parse({
   message: 'boom2',
-  stack: 'Error: boom2\n  at ...\n  at...'
+  stack: 'Error: boom2\n  at ...\n  at...',
 })
 /*
   > err
@@ -67,7 +80,7 @@ var err = parse({
 */
 
 var err2 = parse({
-  message: 'boom'
+  message: 'boom',
   // no stack
 })
 /*
@@ -77,7 +90,6 @@ var err2 = parse({
   'Error: boom'
 */
 ```
-
 
 #License
 MIT
