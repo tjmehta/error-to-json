@@ -16,7 +16,7 @@ npm i --save error-to-json
 // esm
 import errorToJSON from 'error-to-json'
 // commonjs
-const errorToJSON = require('error-to-json')
+const errorToJSON = require('error-to-json').default
 ```
 
 #### Example: toJSON
