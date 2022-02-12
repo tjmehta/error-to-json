@@ -4,7 +4,7 @@ export default errToJSON
 
 const nonEnumerablePropsToCopy = ['code', 'errno', 'syscall']
 
-function errToJSON<T extends {}>(json: any): T {
+export function errToJSON<T extends {}>(json: any): T {
   // @ts-ignore
   const {toJSON} = Error.prototype
 
