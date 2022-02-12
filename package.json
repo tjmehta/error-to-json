@@ -31,17 +31,16 @@
   },
   "homepage": "https://github.com/tjmehta/error-to-json",
   "dependencies": {
-    "fast-safe-stringify": "^2.0.7"
+    "fast-safe-stringify": "^2.1.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-typescript": "^7.10.1",
-    "@types/jest": "^25.2.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0",
     "babel-core": "^6.26.3",
-    "babel-jest": "^26.0.1",
+    "babel-jest": "^27.5.1",
     "escape-string-regexp": "^4.0.0",
-    "jest": "^26.0.1",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.5"
+    "jest": "^27.5.1",
+    "typescript": "^4.5.5"
   }
 }
