@@ -4,44 +4,36 @@ export default errToJSON
 
 const nonEnumerablePropsToCopy = ['code', 'errno', 'syscall']
 
-function errToJSON<T extends {}>(err: Error): T {
-  let json
+function errToJSON<T extends {}>(json: any): T {
   // @ts-ignore
-  if (typeof err.toJSON === 'function') {
-    // @ts-ignore
-    json = err.toJSON()
-  } else {
-    // stub error tojson
-    const stubbed = 'toJSON' in Error.prototype
-    // @ts-ignore
-    const toJSON = Error.prototype.toJSON
-    // @ts-ignore
-    Error.prototype.toJSON = function () {
-      const json = {
-        // Add all enumerable properties
-        ...this,
-        // normal props
-        name: this.name,
-        message: this.message,
-        stack: this.stack,
-      }
+  const {toJSON} = Error.prototype
 
-      nonEnumerablePropsToCopy.forEach((key) => {
-        // @ts-ignore
-        if (key in this) json[key] = this[key]
-      })
-
-      return JSON.parse(stringify(json))
+  // @ts-ignore
+  Error.prototype.toJSON = function () {
+    const json = {
+      // Add all enumerable properties
+      ...this,
+      // normal props
+      name: this.name,
+      message: this.message,
+      stack: this.stack,
     }
 
-    // get error json
-    // @ts-ignore
-    json = err.toJSON()
+    nonEnumerablePropsToCopy.forEach((key) => {
+      // @ts-ignore
+      if (key in this) json[key] = this[key]
+    })
 
-    // unstub error tojson
-    // @ts-ignore
-    if (stubbed) Error.prototype.toJSON = toJSON
+    return JSON.parse(stringify(json))
   }
+
+  // get error json
+  // @ts-ignore
+  if(json.toJSON) json = json.toJSON()
+
+  // unstub error tojson
+  // @ts-ignore
+  Error.prototype.toJSON = toJSON
 
   // return error json
   return json

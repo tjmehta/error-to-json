@@ -89,7 +89,7 @@ describe('error to json', function () {
                 "message": "boom3",
                 "name": "Error",
                 "stack": "Error: boom3
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:66:18)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:69:18)
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
@@ -104,7 +104,7 @@ describe('error to json', function () {
             "message": "boom2",
             "name": "Error",
             "stack": "Error: boom2
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:63:28)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:66:28)
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
@@ -127,7 +127,7 @@ describe('error to json', function () {
         "message": "boom",
         "name": "TypeError",
         "stack": "TypeError: boom
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:47:15)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:50:15)
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
