@@ -23,14 +23,13 @@ function Error_prototype_toJSON(this: Error) {
 }
 
 export function errToJSON<T extends {}>(json: any): T {
+  // stub error tojson
   // @ts-ignore
   const {toJSON} = Error.prototype
-
   // @ts-ignore
   Error.prototype.toJSON = Error_prototype_toJSON
 
-  // get error json
-  // @ts-ignore
+  // Get JSON representation of objects
   if(json.toJSON) json = json.toJSON()
   else if(isErrorAlike(json)) json = Error_prototype_toJSON.call(json)
 
