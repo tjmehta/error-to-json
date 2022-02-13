@@ -148,6 +148,32 @@ describe('error to json', function () {
     err.toJSON = () => json
     expect(errToJSON(err)).toBe(json)
   })
+
+  it('should work with Error-alike objects', () => {
+    const err = {
+      name: 'Error',
+      message: 'boom',
+      stack: 'Error: boom\n',
+    }
+    const json = {
+      name: 'Error',
+      message: 'boom',
+      stack: 'Error: boom\n',
+    }
+    expect(errToJSON(err)).toStrictEqual(json)
+  })
+
+  it('should work with non Error-alike objects', () => {
+    const err = {
+      name: 'Error',
+      message: 'boom',
+    }
+    const json = {
+      name: 'Error',
+      message: 'boom',
+    }
+    expect(errToJSON(err)).toStrictEqual(json)
+  })
 })
 
 function cleanStack(stack: string) {

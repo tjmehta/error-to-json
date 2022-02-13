@@ -32,6 +32,7 @@ export function errToJSON<T extends {}>(json: any): T {
   // get error json
   // @ts-ignore
   if(json.toJSON) json = json.toJSON()
+  else if(isErrorAlike(json)) json = Error_prototype_toJSON.call(json)
 
   // unstub error tojson
   // @ts-ignore
@@ -39,6 +40,19 @@ export function errToJSON<T extends {}>(json: any): T {
 
   // return error json
   return json
+}
+
+// HACK: found on the wild an `AssertionError` that extends from non default
+//       `Error` class.
+function isErrorAlike(error: any): boolean {
+  return error != null
+      // TODO: Both can be `undefined`, how can we properly detect them? See
+      // https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-error.prototype.tostring
+      && typeof error.message === 'string'
+      && typeof error.name === 'string'
+      // 'stack' is not standard, but widely supported, see
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack
+      && 'stack' in error
 }
 
 export function parse(json: { message: string }) {
