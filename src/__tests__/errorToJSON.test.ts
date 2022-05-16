@@ -33,14 +33,14 @@ describe('error to json', function () {
         "name": "TypeError",
         "stack": "TypeError: boom
           at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:6:17)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:60:9)
-          at run (/node_modules/jest-circus/build/run.js:25:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at run (/node_modules/jest-circus/build/run.js:31:3)",
         "syscall": "syscall",
       }
     `)
@@ -90,14 +90,14 @@ describe('error to json', function () {
                 "name": "Error",
                 "stack": "Error: boom3
           at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:69:18)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:60:9)
-          at run (/node_modules/jest-circus/build/run.js:25:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at run (/node_modules/jest-circus/build/run.js:31:3)",
               },
               "someDeepData": 1,
             },
@@ -105,14 +105,14 @@ describe('error to json', function () {
             "name": "Error",
             "stack": "Error: boom2
           at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:66:28)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:60:9)
-          at run (/node_modules/jest-circus/build/run.js:25:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at run (/node_modules/jest-circus/build/run.js:31:3)",
           },
           "someData": Object {
             "a": 1,
@@ -128,14 +128,14 @@ describe('error to json', function () {
         "name": "TypeError",
         "stack": "TypeError: boom
           at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:50:15)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:391:28)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:60:9)
-          at run (/node_modules/jest-circus/build/run.js:25:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at run (/node_modules/jest-circus/build/run.js:31:3)",
         "statusCode": 400,
       }
     `)

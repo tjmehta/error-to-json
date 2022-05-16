@@ -34,13 +34,16 @@
     "fast-safe-stringify": "^2.1.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.5.1",
     "babel-core": "^6.26.3",
-    "babel-jest": "^27.5.1",
-    "escape-string-regexp": "^4.0.0",
-    "jest": "^27.5.1",
-    "typescript": "^4.5.5"
+    "babel-jest": "^28.1.0",
+    "escape-string-regexp": "^5.0.0",
+    "jest": "^28.1.0",
+    "typescript": "^4.6.4"
+  },
+  "jest": {
+    "transformIgnorePatterns": ["/node_modules/(?!(escape-string-regexp)/)", "/bar/"]
   }
 }
