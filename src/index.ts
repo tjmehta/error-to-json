@@ -1,8 +1,16 @@
+import {AssertionError} from 'assert'
+
 import stringify from 'fast-safe-stringify'
 
 export default errToJSON
 
+
 const nonEnumerablePropsToCopy = ['code', 'errno', 'syscall']
+
+
+let AssertionError_toJSON: Function | undefined
+let Error_toJSON: Function | undefined
+
 
 function Error_prototype_toJSON(this: Error) {
   const json = {
@@ -22,20 +30,49 @@ function Error_prototype_toJSON(this: Error) {
   return JSON.parse(stringify(json))
 }
 
-export function errToJSON<T extends {}>(json: any): T {
-  // stub error tojson
+export function disable()
+{
   // @ts-ignore
-  const {toJSON} = Error.prototype
+  if (AssertionError.prototype.toJSON === Error_prototype_toJSON) {
+    // @ts-ignore
+    AssertionError.prototype.toJSON = AssertionError_toJSON
+    AssertionError_toJSON = undefined
+  }
+
+  // @ts-ignore
+  if (Error.prototype.toJSON === Error_prototype_toJSON) {
+    // @ts-ignore
+    Error.prototype.toJSON = Error_toJSON
+    Error_toJSON = undefined
+  }
+}
+
+export function enable()
+{
+  // @ts-ignore
+  if (Error.prototype.toJSON === Error_prototype_toJSON) return
+
+  // AssertionError
+  // @ts-ignore
+  ;({toJSON: AssertionError_toJSON} = AssertionError.prototype)
+  // @ts-ignore
+  AssertionError.prototype.toJSON = Error_prototype_toJSON
+
+  // Error
+  // @ts-ignore
+  ;({toJSON: Error_toJSON} = Error.prototype)
   // @ts-ignore
   Error.prototype.toJSON = Error_prototype_toJSON
+}
+
+export function errToJSON<T extends {}>(json: any): T {
+  enable()
 
   // Get JSON representation of objects
   if(json.toJSON) json = json.toJSON()
   else if(isErrorAlike(json)) json = Error_prototype_toJSON.call(json)
 
-  // unstub error tojson
-  // @ts-ignore
-  Error.prototype.toJSON = toJSON
+  disable()
 
   // return error json
   return json
