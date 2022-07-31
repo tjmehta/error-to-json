@@ -36,10 +36,10 @@ describe('error to json', function () {
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
           at run (/node_modules/jest-circus/build/run.js:31:3)",
         "syscall": "syscall",
       }
@@ -93,10 +93,10 @@ describe('error to json', function () {
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
           at run (/node_modules/jest-circus/build/run.js:31:3)",
               },
               "someDeepData": 1,
@@ -108,10 +108,10 @@ describe('error to json', function () {
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
           at run (/node_modules/jest-circus/build/run.js:31:3)",
           },
           "someData": Object {
@@ -131,10 +131,10 @@ describe('error to json', function () {
           at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
           at new Promise (<anonymous>)
           at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:276:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:208:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:96:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:90:9)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
           at run (/node_modules/jest-circus/build/run.js:31:3)",
         "statusCode": 400,
       }
