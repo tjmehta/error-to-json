@@ -23,27 +23,31 @@ describe('error to json', function () {
     // @ts-ignore
     json.stack = cleanStack(json.stack)
     expect(json).toMatchInlineSnapshot(`
-      Object {
-        "code": "code",
-        "errno": "errno",
-        "json": Object {
-          "some": "json",
-        },
-        "message": "boom",
-        "name": "TypeError",
-        "stack": "TypeError: boom
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:6:17)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
-          at run (/node_modules/jest-circus/build/run.js:31:3)",
-        "syscall": "syscall",
-      }
-    `)
+{
+  "code": "code",
+  "errno": "errno",
+  "json": {
+    "some": "json",
+  },
+  "message": "boom",
+  "name": "TypeError",
+  "stack": "TypeError: boom
+    at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:6:17)
+    at Promise.then.completed (/node_modules/jest-circus/build/utils.js:300:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:233:10)
+    at _callCircusTest (/node_modules/jest-circus/build/run.js:314:40)
+    at _runTest (/node_modules/jest-circus/build/run.js:250:3)
+    at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:125:9)
+    at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:120:9)
+    at run (/node_modules/jest-circus/build/run.js:70:3)
+    at runAndTransformResultsToJestFormat (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/node_modules/jest-runner/build/runTest.js:444:34)",
+  "syscall": "syscall",
+}
+`)
   })
 
   it('should convert an error w/ enumerable props to json', function () {
@@ -81,45 +85,53 @@ describe('error to json', function () {
     // @ts-ignore
     json.data.err.data.err.stack = cleanStack(json.data.err.data.err.stack)
     expect(json).toMatchInlineSnapshot(`
-      Object {
-        "data": Object {
-          "err": Object {
-            "data": Object {
-              "err": Object {
+      {
+        "data": {
+          "err": {
+            "data": {
+              "err": {
                 "message": "boom3",
                 "name": "Error",
                 "stack": "Error: boom3
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:69:18)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:73:18)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:300:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
-          at run (/node_modules/jest-circus/build/run.js:31:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:233:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:314:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:250:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:125:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:120:9)
+          at run (/node_modules/jest-circus/build/run.js:70:3)
+          at runAndTransformResultsToJestFormat (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/node_modules/jest-runner/build/runTest.js:444:34)",
               },
               "someDeepData": 1,
             },
             "message": "boom2",
             "name": "Error",
             "stack": "Error: boom2
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:66:28)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:70:28)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:300:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
-          at run (/node_modules/jest-circus/build/run.js:31:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:233:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:314:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:250:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:125:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:120:9)
+          at run (/node_modules/jest-circus/build/run.js:70:3)
+          at runAndTransformResultsToJestFormat (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/node_modules/jest-runner/build/runTest.js:444:34)",
           },
-          "someData": Object {
+          "someData": {
             "a": 1,
             "b": 2,
             "c": 3,
           },
-          "someModel": Object {
+          "someModel": {
             "bar": 20,
             "foo": 10,
           },
@@ -127,15 +139,19 @@ describe('error to json', function () {
         "message": "boom",
         "name": "TypeError",
         "stack": "TypeError: boom
-          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:50:15)
-          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:333:28)
+          at Object.<anonymous> (/src/__tests__/errorToJSON.test.ts:54:15)
+          at Promise.then.completed (/node_modules/jest-circus/build/utils.js:300:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:259:10)
-          at _callCircusTest (/node_modules/jest-circus/build/run.js:277:40)
-          at _runTest (/node_modules/jest-circus/build/run.js:209:3)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:97:9)
-          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:91:9)
-          at run (/node_modules/jest-circus/build/run.js:31:3)",
+          at callAsyncCircusFn (/node_modules/jest-circus/build/utils.js:233:10)
+          at _callCircusTest (/node_modules/jest-circus/build/run.js:314:40)
+          at _runTest (/node_modules/jest-circus/build/run.js:250:3)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:125:9)
+          at _runTestsForDescribeBlock (/node_modules/jest-circus/build/run.js:120:9)
+          at run (/node_modules/jest-circus/build/run.js:70:3)
+          at runAndTransformResultsToJestFormat (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/node_modules/jest-runner/build/runTest.js:444:34)",
         "statusCode": 400,
       }
     `)
