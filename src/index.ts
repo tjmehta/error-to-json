@@ -87,7 +87,8 @@ function isErrorAlike(error: any): boolean {
 
 export function parse(
   json: ({errors?: any[], name: 'AggregateError'} | {name?: string})
-    & {cause: any, message: string, stack?: string}
+    & {cause: any, message: string, stack?: string},
+  constructors: Record<string, new(message?: string) => Error> = {}
 ) {
   const {message, name} = json
 
@@ -118,7 +119,13 @@ export function parse(
       break;
 
     default:
-      err = new Error(message, {cause})
+      {
+        const Constructor = constructors[name as keyof typeof constructors]
+
+        err = Constructor
+          ? new Constructor(message)
+          : new Error(message, {cause})
+      }
     }
 
   const {stack} = err
