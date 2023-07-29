@@ -85,9 +85,44 @@ function isErrorAlike(error: any): boolean {
       && 'stack' in error
 }
 
-export function parse(json: { message: string }) {
-  const err = new Error(json.message)
-  const stack = err.stack || ''
+export function parse(
+  json: ({errors?: any[], name: 'AggregateError'} | {name?: string})
+    & {cause: any, message: string, stack?: string}
+) {
+  const {message, name} = json
+
+  let {cause} = json
+
+  if((cause as {message: string})?.message !== undefined)
+    cause = parse(cause, constructors)
+
+  let err: Error
+
+  switch (name) {
+    case 'AggregateError':
+      err = new AggregateError(
+        ((json as {errors?: any[]}).errors ?? []).map(function(error) {
+          return parse(error, constructors)
+        }),
+        message, {cause}
+      )
+      break;
+
+    case 'EvalError':
+    case 'RangeError':
+    case 'ReferenceError':
+    case 'SyntaxError':
+    case 'TypeError':
+    case 'URIError':
+      err = new globalThis[name](message, {cause})
+      break;
+
+    default:
+      err = new Error(message, {cause})
+    }
+
+  const {stack} = err
+
   Object.assign(err, json)
   for(const key of nonEnumerablePropsToCopy)
     // @ts-ignore
