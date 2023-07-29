@@ -76,8 +76,6 @@ export function errToJSON<T extends {}>(json: any): T {
 //       `Error` class.
 function isErrorAlike(error: any): boolean {
   return error != null
-      // TODO: Both can be `undefined`, how can we properly detect them? See
-      // https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-error.prototype.tostring
       && typeof error.message === 'string'
       && typeof error.name === 'string'
       // 'stack' is not standard, but widely supported, see
@@ -140,5 +138,6 @@ export function parse(
     const index = stack.indexOf('\n')
     err.stack = stack.slice(0, index) + stack.slice(stack.indexOf('\n', index + 1))
   }
+
   return err
 }
