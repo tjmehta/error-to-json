@@ -1,7 +1,7 @@
 import errToJSON from '../index'
 import regExpEscape from 'escape-string-regexp'
 
-describe('error to json', function () {
+function commonTests() {
   it('should convert an error w/ non-enumerable props to json', function () {
     const err = new TypeError('boom')
     const nonEnumerableProps = ['code', 'errno', 'syscall']
@@ -74,6 +74,8 @@ describe('error to json', function () {
     // @ts-ignore
     json.stack = cleanStack(json.stack)
     // @ts-ignore
+    console.log(json.data.err.stack)
+    // @ts-ignore
     json.data.err.stack = cleanStack(json.data.err.stack)
     // @ts-ignore
     json.data.err.data.err.stack = cleanStack(json.data.err.data.err.stack)
@@ -128,6 +130,10 @@ describe('error to json', function () {
       }
     `)
   })
+}
+
+describe('error to json', function () {
+  commonTests()
 
   it('should invoke toJSON if error already has toJSON', () => {
     const err = new Error()
@@ -136,9 +142,29 @@ describe('error to json', function () {
     err.toJSON = () => json
     expect(errToJSON(err)).toBe(json)
   })
+
+  describe('when Error.prototype.toJSON is not writable', () => {
+    beforeAll(() => {
+      Object.defineProperty(Error.prototype, 'toJSON', {
+        value: undefined,
+        writable: false,
+        configurable: false,
+      })
+    })
+    afterAll(() => {
+      Object.defineProperty(Error.prototype, 'toJSON', {
+        value: undefined,
+        writable: true,
+        configurable: true,
+      })
+    })
+
+    commonTests()
+  })
 })
 
 function cleanStack(stack: string) {
+  if (!stack) return ''
   return stack
     .replace(new RegExp(regExpEscape(process.cwd()), 'g'), '')
     .replace(/.*\/wallaby\/.*\n/g, '')

@@ -12,11 +12,11 @@ function errToJSON<T extends {}>(err: Error): T {
     json = err.toJSON()
   } else {
     // stub error tojson
-    const stubbed = 'toJSON' in Error.prototype
+    let stubbed = 'toJSON' in Error.prototype
     // @ts-ignore
-    const toJSON = Error.prototype.toJSON
+    const errToJSON = Error.prototype.toJSON
     // @ts-ignore
-    Error.prototype.toJSON = function () {
+    const toJSON = function (this: Error) {
       const json = {
         // Add all enumerable properties
         ...this,
@@ -33,14 +33,26 @@ function errToJSON<T extends {}>(err: Error): T {
 
       return JSON.parse(stringify(json))
     }
+    try {
+      // @ts-ignore
+      Error.prototype.toJSON = toJSON
+    } catch (e) {
+      stubbed = false
+    }
 
     // get error json
     // @ts-ignore
-    json = err.toJSON()
+    if (stubbed && typeof err.toJSON === 'function') {
+      // @ts-ignore
+      json = err.toJSON()
+    } else {
+      stubbed = false
+      json = toJSON.call(err)
+    }
 
     // unstub error tojson
     // @ts-ignore
-    if (stubbed) Error.prototype.toJSON = toJSON
+    if (stubbed) Error.prototype.toJSON = errToJSON
   }
 
   // return error json
